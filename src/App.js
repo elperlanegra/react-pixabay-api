@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Bucador from "./components/Buscador";
+import Resultado from "./components/Resultado";
 
 class App extends Component {
 
@@ -38,11 +39,14 @@ class App extends Component {
         <div className="jumbotron">
           <p className="lead text-center">Buscador de Imágenes</p>
           <Bucador
-
-           datosBusqueda={this.datosBusqueda} 
-
+            datosBusqueda={this.datosBusqueda} 
            />
+
         </div>
+
+        <Resultado 
+          imagenes={this.state.imagenes}
+        />  
       </div>
     );
   }
