@@ -4,12 +4,31 @@ import Bucador from "./components/Buscador";
 class App extends Component {
 
   state = {
-    termino : 'Café'
+    termino : '',
+    imagenes : []
+  }
+
+
+  consultarApi = () => {
+    
+    const termino = this.state.termino;
+
+    const url = `https://pixabay.com/api/?key=19911299-ebc621347a15a9756aca773fa&q=${termino}&per_page=30`;
+
+    // console.log(url)
+
+    fetch(url)
+      .then( respuesta => respuesta.json() )
+      .then( resultado => this.setState({ imagenes : resultado.hits }) )
+
+
   }
 
   datosBusqueda = (termino) => {
-   this.state({
+   this.setState({
         termino
+     }, () => {
+       this.consultarApi();
      })
   }
 
@@ -24,7 +43,6 @@ class App extends Component {
 
            />
         </div>
-        {this.state.termino}
       </div>
     );
   }
