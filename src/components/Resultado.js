@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Imagen from './Imagen'
+import Paginacion from './Paginacion';
 
 class Resultado extends Component {
 
@@ -9,7 +10,7 @@ class Resultado extends Component {
 
         if(imagenes.length === 0) return null;
 
-        console.log(imagenes)
+        // console.log(imagenes)
         
         return (
             <Fragment>
@@ -23,6 +24,12 @@ class Resultado extends Component {
                     ) )}
 
                 </div>
+                
+                <Paginacion
+                    paginaAnterior={this.props.paginaAnterior}
+                    paginaSiguiente={this.props.paginaSiguiente}
+                 />
+
             </Fragment>
         )
 
