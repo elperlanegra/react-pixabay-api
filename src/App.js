@@ -9,6 +9,12 @@ class App extends Component {
     pagina: [],
   };
 
+  scroll = () => {
+    const elemento = document.querySelector('.jumbotron')
+    elemento.scrollIntoView('smooth', 'end')
+  }
+
+
   paginaAnterior = () => {
     // leer el state de la pagina actual
     let pagina = this.state.pagina;
@@ -24,6 +30,7 @@ class App extends Component {
       pagina,
     } , () => {
       this.consultarApi()
+      this.scroll()
     });
 
   };
@@ -40,6 +47,8 @@ class App extends Component {
       pagina,
     }, () => {
       this.consultarApi()
+      this.scroll()
+
     });
 
   };
